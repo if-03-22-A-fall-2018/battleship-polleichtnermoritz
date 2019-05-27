@@ -27,8 +27,8 @@ void load_game()
   {
     for (int j = 0; j < FIELDSIZE; j++)
     {
-      fread(&myField[i][j], 4, 1, my_fd);
-      fread(&enemyField[i][j], 4, 1, op_fd);
+      fread(&myField[i][j], sizeof(CellContent), 1, my_fd);
+      fread(&enemyField[i][j], sizeof(CellContent), 1, op_fd);
       myGuesses[i][j] = Unknown;
     }
   }
