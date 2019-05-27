@@ -47,13 +47,22 @@ CellContent get_shot(int row, int col)
 
 bool shoot(int row, int col)
 {
-  if (row < 0 || row >= FIELDSIZE || col < 0 || col >= FIELDSIZE)
+  if(!(row> -1 && row< SIZE && col>-1&&col<SIZE ))
   {
     return false;
   }
 
-
-
+  for (int i = -1; i <= 1; ++i)
+  {
+      for (int j = -1; j <= 1; ++j)
+      {
+            if(row+i> -1 && row+i< SIZE && col+j>-1&&col+j<SIZE)
+            {
+              myGuesses[row+i][col+j] = enemyField[row+i][col+j];
+            }
+      }
+  }
+      return true;
 }
 
 CellContent get_my_guess(int row, int col)
